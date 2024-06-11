@@ -1,0 +1,14 @@
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+  }
+
+#passErr{
+  display: none;
+}
+
+#emailErr{
+  display: none;
+}
