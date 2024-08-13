@@ -1,0 +1,22 @@
+<div class="center-container">
+    <mat-card style="width: 400px">
+        <mat-card-content>
+            <h1>Log in</h1>
+        </mat-card-content>
+        <form class="example-form">
+            <mat-error id="LoginErr"></mat-error>
+            <mat-form-field class="frm-cotrol">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput id="email" placeholder="mail@example.com">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="frm-cotrol">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput id="password" placeholder="password">
+            </mat-form-field>
+            <br>
+            <button type="button" mat-flat-button color="primary" (click)="Login()" class="frm-cotrol">Log in</button>
+            <p>Dont have an account? Register <a href="" routerLink="/register">here</a></p>
+        </form>
+    </mat-card>
+</div>

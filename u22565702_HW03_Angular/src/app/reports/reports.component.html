@@ -1,0 +1,49 @@
+<div class="chart-container" *ngIf="brandChartData.length && productTypeChartData.length">
+  <div style="width: 45%;">
+    <h3>Product Count by Brands</h3>
+    <ngx-charts-bar-vertical
+      [view]="[700, 400]"
+      [scheme]="colorScheme"
+      [results]="brandChartData"
+      [gradient]="false"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Brand'"
+      [yAxisLabel]="'Count'">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div style="width: 45%;">
+    <h3>Product Count by Product Types</h3>
+    <ngx-charts-bar-vertical
+      [view]="[700, 400]"
+      [scheme]="colorScheme"
+      [results]="productTypeChartData"
+      [gradient]="false"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Product Type'"
+      [yAxisLabel]="'Count'">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let type of productTypes">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ type.name }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let brand of brands">
+      <h3>{{ brand.name }}</h3>
+      <div *ngFor="let product of getFilteredProducts(type.productTypeId, brand.brandId)">
+        <p>{{ product.name }}</p>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
